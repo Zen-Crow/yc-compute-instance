@@ -15,7 +15,6 @@ else {
     Write-Host "Unable to extract variables from ssh-agent output."
 }
 
-
 ### Добавляем ключ
 ssh-add C:\Users\Администратор\.ssh\id_rsa
 

@@ -38,7 +38,6 @@ resource "yandex_vpc_subnet" "this" {
   route_table_id = yandex_vpc_route_table.rt.id
 }
 
-
 ### Security group with rules ###
 resource "yandex_vpc_security_group" "group" {
   name       = "${local.network_name}-sg"
