@@ -46,7 +46,7 @@ resource "yandex_compute_instance" "this" {
   }
 
   metadata = {
-    user-keys = "${var.user_vm}:${file("${var.public_key}")}"
+    ssh-keys = "${var.user_vm}:${file("${var.public_key}")}"
   }
 
   service_account_id = yandex_iam_service_account.sa.id
