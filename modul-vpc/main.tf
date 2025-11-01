@@ -3,7 +3,8 @@ data "yandex_client_config" "client" {}
 
 ### Local variables ###
 locals {
-  network_name = var.vpc_network_name != null ? var.vpc_network_name : "${var.name_prefix}"
+  folder_id    = coalesce(var.folder_id, data.yandex_client_config.client.folder_id)
+  network_name = coalesce(var.vpc_network_name, "${var.name_prefix}")
 }
 
 ### Network ###
@@ -63,20 +64,6 @@ resource "yandex_vpc_security_group" "group" {
     description    = "Allow HTTP"
     v4_cidr_blocks = ["0.0.0.0/0"]
     port           = 443
-  }
-
-  ingress {
-    protocol       = "TCP"
-    description    = "Grafana"
-    v4_cidr_blocks = ["0.0.0.0/0"]
-    port           = 3000
-  }
-
-  ingress {
-    protocol       = "TCP"
-    description    = "Prometheus"
-    v4_cidr_blocks = ["0.0.0.0/0"]
-    port           = 9090
   }
 
   ingress {
