@@ -1,0 +1,13 @@
+terraform {
+  required_providers {
+    yandex = {
+      source  = "yandex-cloud/yandex"
+      version = "0.169.0"
+    }
+  }
+  required_version = ">= 1.0.0"
+}
+
+module "vpc-single-zone" {
+  source = "./modul-vpc"
+}
