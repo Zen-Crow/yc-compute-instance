@@ -3,7 +3,7 @@ locals {
   name        = "ubuntu-server"
   hostname    = "workstation-1"
   cores       = 2
-  memory      = 2
+  memory      = 4
   size        = 20
   type        = "network-ssd"
   platform_id = "standard-v3"
